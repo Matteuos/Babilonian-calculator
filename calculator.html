@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="title">Calculator</title>
+    <style>
+        *{    
+            margin: 0;
+            padding: 0;
+        }
+        .background{
+            background-image: url(GettyImages-567940171-04e94eb.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0%;
+            height: 100vh;
+            color: rgb(245, 221, 192);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            
+            
+            }
+            .calculator{
+                position: absolute;
+                background-color: rgba(236, 204, 198, 0.8);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 5px;
+                padding: 7px;
+            }
+            .button{
+                width: 70px;
+                height: 40px;
+                font-size: 20px;
+                cursor: pointer;
+                background-color:rgba(209, 174, 122, 0.8);
+                color:azure;
+                border: none;
+                margin: 2px;
+            }
+            .button:hover{
+                background-color:rgba(189, 136, 57, 0.612);
+            }
+            #result{
+                background-color:rgba(189, 136, 57, 0.612);
+                height: 47px;
+                width: auto;
+                margin: 1%;
+                color: rgb(248, 219, 219);
+                text-align: right;
+                font-size: 30px;
+                padding: 5px;
+            }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <h1>Calculator </h1>
+        <h3>Matheus N. C. Senna</h3>
+        <div class="calculator"
+        <h3>by Matheus N. C. Senna</h3>
+        <div class="calculator">
+            <p id="result"></p>
+        <table>
+            <tr>
+                <td><button class="button" onclick="clean()">C</button></td>
+                <td><button class="button" onclick="back()"> < </button></td>
+                <td><button class="button" onclick="insert('/')"> / </button></td>
+                <td><button class="button" onclick="insert('*')"> x </button></td>
+
+            </tr>
+            <tr>
+                <td><button class="button" onclick="insert('7')"> 7 </button></td>
+                <td><button class="button" onclick="insert('8')"> 8 </button></td>
+                <td><button class="button" onclick="insert('9')"> 9 </button></td>
+                <td><button class="button" onclick="insert('-')"> - </button></td>
+
+            </tr>
+            <tr>
+                <td><button class="button" onclick="insert('4')"> 4 </button></td>
+                <td><button class="button" onclick="insert('5')"> 5 </button></td>
+                <td><button class="button" onclick="insert('6')"> 6 </button></td>
+                <td><button class="button" onclick="insert('+')"> + </button></td>
+
+            </tr>
+            <tr>
+                <td><button class="button" onclick="insert('1')"> 1 </button></td>
+                <td><button class="button" onclick="insert('2')"> 2 </button></td>
+                <td><button class="button" onclick="insert('3')"> 3 </button></td>
+                <td rowspan="2"><button class="button" style="height: 82px;" onclick="calculate()"> = </button></td>
+
+            </tr>
+            <tr>
+                <td colspan="2"><button class="button" style="width: 142px;" onclick="insert('0')"> 0 </button></td>
+                <td rowspan="2"><button class="button" onclick="insert('.')"> . </button></td>
+
+            </tr>
+        </table>
+    </div>
+    <script>
+        function insert(num)
+        {
+            var number = document.getElementById('result').innerHTML;
+            document.getElementById('result').innerHTML = number + num;
+        }
+        function clean()
+        {
+            document.getElementById('result').innerHTML = "";
+        }
+        function back()
+        {
+            var result = document.getElementById('result').innerHTML;
+            document.getElementById('result').innerHTML = result.substring(0, result.length -1);
+        }
+        function calculate()
+        {
+            var result = document.getElementById('result').innerHTML;
+            if (result)
+            {
+                document.getElementById('result').innerHTML = eval(result);
+            }
+        }
+    </script>
+
+</body>
+</html>
